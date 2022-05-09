@@ -10,24 +10,19 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
-            if (string.IsNullOrEmpty(word))
-                return word;
-            else
-                return char.ToUpper(word[0]) + word.Substring(1);
+            return string.IsNullOrEmpty(word) ? word : char.ToUpper(word[0]) + word.Substring(1);
         }
 
         public string GenerateInitials(string firstName, string lastName)
         {
             StringBuilder intials = new StringBuilder();
 
-            if (!string.IsNullOrEmpty(firstName?.Trim()))
-                intials.Append(firstName[0]);
-            if (!string.IsNullOrEmpty(lastName?.Trim()))
-            {
-                if (intials.Length > 0)
-                    intials.Append(".");
-                intials.Append(lastName[0]);
-            }
+            firstName = firstName?.Trim() ?? "";
+            lastName = lastName?.Trim() ?? "";
+            intials.Append(firstName.Length > 0 ? firstName[..1] : "");
+            intials.Append(firstName.Length > 0 && lastName.Length > 0 ? "." : "");
+            intials.Append(lastName.Length > 0 ? lastName[..1] : "");
+
             return intials.ToString();
         }
 
@@ -43,14 +38,7 @@ namespace Exercises
 
         public string Reverse(string sentence)
         {
-            if (sentence == null || sentence.Length <= 1)
-                return sentence;
-            else
-            {
-                var charArray = sentence.ToCharArray();
-                Array.Reverse(charArray);
-                return new string(charArray);
-            }
+            return string.IsNullOrEmpty(sentence) ? sentence : sentence.Reverse().ToString();
         }
 
         public int CountLinuxUsers(List<User> users)

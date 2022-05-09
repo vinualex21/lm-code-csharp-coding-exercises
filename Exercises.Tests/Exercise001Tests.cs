@@ -35,6 +35,8 @@ namespace Exercises.Tests
             Exercise001.GenerateInitials("Mathew", null).Should().Be("M");
             Exercise001.GenerateInitials("", "Wick").Should().Be("W");
             Exercise001.GenerateInitials(null, null).Should().Be("");
+            Exercise001.GenerateInitials(" ", "Chopin").Should().Be("C");
+            Exercise001.GenerateInitials("Franz", " ").Should().Be("F");
         }
 
         [Test]
@@ -69,6 +71,7 @@ namespace Exercises.Tests
             Exercise001.Reverse("why would you even want to do this?").Should().Be("?siht od ot tnaw neve uoy dluow yhw");
             Exercise001.Reverse("x").Should().Be("x");
             Exercise001.Reverse(null).Should().Be(null);
+            Exercise001.Reverse(" ").Should().Be(" ");
             Exercise001.Reverse("level").Should().Be("level");
             Exercise001.Reverse("why not numb3r5").Should().Be("5r3bmun ton yhw");
 
